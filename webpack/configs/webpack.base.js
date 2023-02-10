@@ -1,4 +1,5 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 /**
  * @param {import("../types").WebpackEnvironment} env
@@ -17,7 +18,11 @@ const config = (env) => ({
     maxAssetSize: 512000,
     maxEntrypointSize: 512000,
   },
-  plugins: [],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(process.cwd(), "src", "index.html"),
+    }),
+  ],
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
     alias: {
