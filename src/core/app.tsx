@@ -1,5 +1,6 @@
 import * as React from "react";
+import { ReactElement } from "react";
 
-const App = () => <h1>Hello World!</h1>;
+const App = (): ReactElement => <h1>Hello World!</h1>;
 
 export { App };
