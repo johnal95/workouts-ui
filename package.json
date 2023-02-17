@@ -17,7 +17,7 @@
     "npm": "8.19.3"
   },
   "scripts": {
-    "build": "npm run webpack -- --env mode=production",
+    "build": "rimraf dist && npm run webpack -- --env mode=production",
     "dev": "npm run webpack-serve -- --env mode=development",
     "dev:analyze": "npm run dev -- presets=analyze",
     "lint": "eslint src",
@@ -47,6 +47,7 @@
     "eslint-plugin-react-hooks": "4.6.0",
     "html-webpack-plugin": "5.5.0",
     "prettier": "2.8.4",
+    "rimraf": "4.1.2",
     "ts-loader": "9.4.2",
     "typescript": "4.9.5",
     "webpack": "5.75.0",
