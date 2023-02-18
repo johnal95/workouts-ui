@@ -18,7 +18,8 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "build": "rimraf dist && npm run webpack -- --env mode=production",
+    "prebuild": "rimraf dist",
+    "build": "npm run webpack -- --env mode=production",
     "dev": "npm run webpack-serve -- --env mode=development",
     "dev:analyze": "npm run dev -- presets=analyze",
     "lint": "eslint src",
