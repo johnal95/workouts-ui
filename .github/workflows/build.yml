@@ -1,0 +1,47 @@
+name: Build
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      CI: true
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup NodeJS 18.13.0
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.13.0
+          cache: "npm"
+
+      - name: Install and lint
+        run: |
+          npm ci --ignore-scripts
+          npm run lint
+          npm audit
+
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup NodeJS 18.13.0
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.13.0
+          cache: "npm"
+
+      - name: Install and build
+        run: |
+          npm ci --ignore-scripts
+          npm run build
+          npm ci --omit=dev --ignore-scripts
