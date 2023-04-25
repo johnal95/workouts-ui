@@ -3,12 +3,12 @@ import { createRoot } from "react-dom/client";
 
 import { App } from "src/core/app";
 
-const rootId = "app";
+const ROOT_ID = "app";
 
-const container = document.getElementById(rootId);
+const container = document.getElementById(ROOT_ID);
 
 if (!container) {
-    throw new Error(`Failed to get root element by id: ${rootId}`);
+    throw new Error(`Failed to get root element by id: ${ROOT_ID}`);
 }
 
 const root = createRoot(container);
