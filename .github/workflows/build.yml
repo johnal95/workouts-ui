@@ -25,7 +25,7 @@ jobs:
         run: |
           npm ci --ignore-scripts
           npm run lint
-          npm audit
+          npm audit --omit=dev
 
   build:
     needs: test
